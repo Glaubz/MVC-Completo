@@ -1,5 +1,7 @@
 using Glaubz.App.Data;
+using Glaubz.Business.Interfaces;
 using Glaubz.Data.Context;
+using Glaubz.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +37,11 @@ namespace Glaubz.App
             services.AddDbContext<MVC_CompletoContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            //services.AddScoped<MVC_CompletoContext>();
+            //services.AddScoped<ProdutoRepository, IProdutoRepository>();
+            //services.AddScoped<FornecedorRepository, IFornecedorRepository>();
+            //services.AddScoped<EnderecoRepository, IEnderecoRepository>();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
