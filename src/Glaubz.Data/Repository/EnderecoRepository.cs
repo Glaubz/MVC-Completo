@@ -1,10 +1,8 @@
-﻿using Glaubz.Business.Interfaces.Repository;
+﻿using Glaubz.Business.Interfaces;
 using Glaubz.Business.Models;
 using Glaubz.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Glaubz.Data.Repository

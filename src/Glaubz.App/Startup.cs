@@ -38,10 +38,14 @@ namespace Glaubz.App
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddScoped<MVC_CompletoContext>();
-            //services.AddScoped<ProdutoRepository, IProdutoRepository>();
-            //services.AddScoped<FornecedorRepository, IFornecedorRepository>();
-            //services.AddScoped<EnderecoRepository, IEnderecoRepository>();
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped<MVC_CompletoContext>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            //O AddScoped tem que ser a Interface à esquerda e o modelo repository à direita
+            //Link útil: https://stackoverflow.com/questions/52312242/error-when-trying-to-add-irepositories-to-services-with-addscoped-asp-net-core-2
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();

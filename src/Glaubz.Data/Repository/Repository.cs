@@ -1,4 +1,4 @@
-﻿using Glaubz.Business.Interfaces.Repository;
+﻿using Glaubz.Business.Interfaces;
 using Glaubz.Business.Models;
 using Glaubz.Data.Context;
 using Microsoft.EntityFrameworkCore;
